@@ -1,1 +1,2 @@
 -r requirements-jupyter.txt
+sympy==1.14.0
