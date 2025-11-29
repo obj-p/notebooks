@@ -1,7 +1,6 @@
 KERNEL_NAME  := notebooks
 PIPX         ?= $(shell command -v pipx)
 PYTHON       ?= $(shell command -v python3)
-PROJECT_ROOT := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 PRE_COMMIT_VERSION = 4.2.0
 BIN_PRE_COMMIT     = bin/pre-commit-$(PRE_COMMIT_VERSION).pyz
@@ -34,7 +33,7 @@ help: ## show this help message
 .PHONY: ipykernel
 ipykernel: ## install the ipykernel
 	@. venv/bin/activate && \
-		python -m ipykernel install --user --display-name $(PROJECT_ROOT) --name $(KERNEL_NAME)
+		python -m ipykernel install --user --display-name $(KERNEL_NAME) --name $(KERNEL_NAME)
 
 .PHONY: uninstall-ipykernel
 uninstall-ipykernel: ## uninstall the ipykernel
