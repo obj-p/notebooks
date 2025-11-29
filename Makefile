@@ -62,7 +62,7 @@ prerequisites: ## check for required development prerequisites
 	if [ -z "$(PIPX)" ]; then missing="$$missing pipx"; fi; \
 	if [ -z "$(PYTHON)" ]; then missing="$$missing python3"; fi; \
 	if [ -n "$$missing" ]; then \
-		echo "Missing prerequisites:$$missing"; \
+		printf "\033[31m[ERROR]\033[0m Missing prerequisites:$$missing\n"; \
 		exit 1; \
 	fi
 
