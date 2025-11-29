@@ -1,0 +1,42 @@
+repos:
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.8.5
+    hooks:
+      - id: nbqa-black
+      - id: nbqa-flake8
+      - id: nbqa-isort
+      - id: nbqa-pyupgrade
+        args: [--py37-plus]
+  - repo: https://github.com/kynan/nbstripout
+    rev: 2abb2aed6aa1d74e61ef2e50f8366d342b6895d3
+    hooks:
+      - id: nbstripout
+        args: [
+            --extra-keys,
+            "metadata.interpreter metadata.language_info.codemirror_mode
+            metadata.language_info.file_extension metadata.language_info.mimetype
+            metadata.language_info.nbconvert_exporter metadata.language_info.pygments_lexer
+            metadata.language_info.version metadata.kernelspec",
+            --keep-output,
+          ]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb, "4096"]
+      - id: check-json
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.1.0
+    hooks:
+      - id: flake8
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
